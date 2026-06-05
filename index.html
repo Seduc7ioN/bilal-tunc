@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="gece">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0d0b08" id="meta-theme"/>
+  <meta name="description" content="Bilal TUNÇ'un kişisel şiir blogu — kelimelerle örülmüş bir dünya."/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Bilal TUNÇ"/>
+  <meta property="og:title" content="Bilal TUNÇ — Şiirler"/>
+  <meta property="og:description" content="Kelimelerle örülmüş bir dünya."/>
+  <meta property="og:type" content="website"/>
+  <title>Bilal TUNÇ — Şiirler</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@200;300;400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ════════════════════════════════════════
+   TEMA DEĞİŞKENLERİ
+   --heading  : başlık rengi (her zaman okunur)
+   --body-text: paragraf / şiir rengi
+   --soft     : ikincil metin
+   ════════════════════════════════════════ */
+
+[data-theme="gece"] {
+  --bg:#0d0b08; --surface:#161310; --card:#1c1814; --border:#2e2820;
+  --accent:#c9a84c; --accent-dim:#7a6330; --accent2:#e05a5a;
+  --heading:#f0e8d8; --body-text:#d8ccb4; --soft:#8a7d6a;
+  --font-display:'Playfair Display',serif; --font-body:'Lora',serif; --font-ui:'Jost',sans-serif;
+  --grain-op:0.55; --card-hover:#c9a84c33;
+  --tag-bg:#251e14; --tag-color:#9a7840;
+  --featured-bg:linear-gradient(135deg,#1e1a12,#161310);
+  --scheme:dark; --themecolor:#0d0b08;
+}
+
+[data-theme="huzun"] {
+  --bg:#0c0e16; --surface:#11131e; --card:#171a28; --border:#222640;
+  --accent:#8899e0; --accent-dim:#4a5490; --accent2:#c07c9a;
+  --heading:#dde0f8; --body-text:#b8bce0; --soft:#70748a;
+  --font-display:'Libre Baskerville',serif; --font-body:'Crimson Pro',serif; --font-ui:'Jost',sans-serif;
+  --grain-op:0.5; --card-hover:#8899e033;
+  --tag-bg:#191c32; --tag-color:#6070b0;
+  --featured-bg:linear-gradient(135deg,#181b2e,#11131e);
+  --scheme:dark; --themecolor:#0c0e16;
+}
+
+[data-theme="ask"] {
+  --bg:#fef6f0; --surface:#fff9f6; --card:#ffffff; --border:#f0d0c8;
+  --accent:#b84a5c; --accent-dim:#8a3040; --accent2:#d0855a;
+  --heading:#28100e; --body-text:#3e1e20; --soft:#907070;
+  --font-display:'Playfair Display',serif; --font-body:'Lora',serif; --font-ui:'Jost',sans-serif;
+  --grain-op:0.25; --card-hover:#b84a5c22;
+  --tag-bg:#fce8ec; --tag-color:#8a3040;
+  --featured-bg:linear-gradient(135deg,#fce6e8,#fff0ee);
+  --scheme:light; --themecolor:#fef6f0;
+}
+
+[data-theme="huzur"] {
+  --bg:#f2efe6; --surface:#f9f7f0; --card:#ffffff; --border:#d4ccb0;
+  --accent:#4a7038; --accent-dim:#305022; --accent2:#7a5820;
+  --heading:#18200e; --body-text:#2a3218; --soft:#6a7450;
+  --font-display:'Crimson Pro',serif; --font-body:'Lora',serif; --font-ui:'Jost',sans-serif;
+  --grain-op:0.3; --card-hover:#4a703822;
+  --tag-bg:#e2eeda; --tag-color:#305022;
+  --featured-bg:linear-gradient(135deg,#e4eedd,#f2efe6);
+  --scheme:light; --themecolor:#f2efe6;
+}
+
+[data-theme="ofke"] {
+  --bg:#0c0704; --surface:#140a06; --card:#1a0e08; --border:#361808;
+  --accent:#e0561a; --accent-dim:#8a3008; --accent2:#c8a820;
+  --heading:#f8e4d0; --body-text:#e8c8a8; --soft:#886050;
+  --font-display:'Libre Baskerville',serif; --font-body:'Crimson Pro',serif; --font-ui:'Jost',sans-serif;
+  --grain-op:0.65; --card-hover:#e0561a33;
+  --tag-bg:#1e0c06; --tag-color:#884020;
+  --featured-bg:linear-gradient(135deg,#1c0c06,#140a06);
+  --scheme:dark; --themecolor:#0c0704;
+}
+
+[data-theme="ozlem"] {
+  --bg:#060c1a; --surface:#0a1224; --card:#0f1a30; --border:#1a2c48;
+  --accent:#88aad8; --accent-dim:#486890; --accent2:#c8b870;
+  --heading:#d0e4f8; --body-text:#a8c0e0; --soft:#507090;
+  --font-display:'Playfair Display',serif; --font-body:'Crimson Pro',serif; --font-ui:'Jost',sans-serif;
+  --grain-op:0.5; --card-hover:#88aad833;
+  --tag-bg:#0c1830; --tag-color:#486890;
+  --featured-bg:linear-gradient(135deg,#0f1e3a,#0a1224);
+  --scheme:dark; --themecolor:#060c1a;
+}
+
+/* ════════════════════════════════════════
+   BASE
+════════════════════════════════════════ */
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--body-text);
+  font-family:var(--font-body);
+  min-height:100vh; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  transition:background .45s,color .35s;
+}
+body::after{
+  content:''; position:fixed; inset:0; z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; opacity:var(--grain-op); transition:opacity .45s;
+}
+
+/* ════════════════════════════════════════
+   INSTALL BANNER
+════════════════════════════════════════ */
+.install-banner{display:none;align-items:center;gap:.8rem;background:var(--surface);border-bottom:1px solid var(--border);padding:.85rem 1.5rem}
+.install-banner.visible{display:flex}
+.install-banner p{font-family:var(--font-ui);font-size:.73rem;font-weight:300;color:var(--soft);flex:1}
+.install-banner p strong{color:var(--accent);font-weight:400}
+.btn-install{background:var(--accent);border:none;color:var(--bg);font-family:var(--font-ui);font-size:.68rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:.5rem 1rem;cursor:pointer;white-space:nowrap}
+.btn-dismiss{background:none;border:none;color:var(--soft);cursor:pointer;font-size:1rem;padding:.2rem;line-height:1}
+
+/* ════════════════════════════════════════
+   HEADER
+════════════════════════════════════════ */
+header{padding:3.5rem 1.5rem 2.8rem;text-align:center;border-bottom:1px solid var(--border);position:relative;transition:border-color .4s}
+.eyebrow{font-family:var(--font-ui);font-weight:200;font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:1.3rem;opacity:0;animation:fadeUp .7s .1s forwards;transition:color .4s}
+.site-title{font-family:var(--font-display);font-size:clamp(2.2rem,9vw,5rem);font-weight:700;line-height:1;letter-spacing:-.01em;color:var(--heading);opacity:0;animation:fadeUp .8s .25s forwards;transition:color .4s}
+.site-title em{font-style:italic;color:var(--accent);transition:color .4s}
+.site-sub{margin-top:.9rem;font-size:.97rem;font-style:italic;color:var(--soft);opacity:0;animation:fadeUp .8s .4s forwards;transition:color .4s}
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;padding:1rem 1.5rem;border-bottom:1px solid var(--border);transition:border-color .4s}
+nav a{font-family:var(--font-ui);font-weight:300;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--soft);transition:color .2s}
+nav a:hover{color:var(--accent)}
+
+/* ════════════════════════════════════════
+   TEMA BAR
+════════════════════════════════════════ */
+.theme-bar{border-bottom:1px solid var(--border);padding:.8rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;transition:border-color .4s}
+.bar-label{font-family:var(--font-ui);font-size:.6rem;font-weight:200;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-dim);white-space:nowrap;transition:color .4s}
+.theme-pills{display:flex;gap:.45rem;flex-wrap:wrap;flex:1}
+.theme-pill{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.3rem .8rem;border:1px solid var(--border);background:transparent;
+  border-radius:99px;cursor:pointer;font-family:var(--font-ui);font-size:.63rem;
+  font-weight:300;letter-spacing:.08em;color:var(--soft);
+  transition:all .22s;white-space:nowrap;
+}
+.theme-pill:hover{border-color:var(--accent);color:var(--accent)}
+.theme-pill.active{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:400}
+
+/* ════════════════════════════════════════
+   MOOD BAR
+════════════════════════════════════════ */
+.mood-bar{border-bottom:1px solid var(--border);padding:.7rem 1.5rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;transition:border-color .4s}
+.mood-chips{display:flex;gap:.35rem;flex-wrap:wrap}
+.mood-chip{
+  padding:.25rem .7rem;border:1px solid var(--border);background:var(--tag-bg);
+  border-radius:99px;cursor:pointer;font-family:var(--font-ui);font-size:.63rem;
+  font-weight:300;letter-spacing:.04em;color:var(--tag-color);
+  transition:all .2s;white-space:nowrap;
+}
+.mood-chip:hover{border-color:var(--accent);color:var(--accent)}
+.mood-chip.active{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:400}
+
+/* ════════════════════════════════════════
+   HERO QUOTE
+════════════════════════════════════════ */
+.hero{max-width:580px;margin:3.5rem auto 2.8rem;padding:0 1.5rem;text-align:center;opacity:0;animation:fadeUp .9s .55s forwards}
+.hero blockquote{
+  font-family:var(--font-display);font-size:clamp(1.05rem,2.8vw,1.45rem);
+  font-style:italic;font-weight:400;line-height:1.85;
+  color:var(--heading);position:relative;padding:0 1rem;transition:color .4s;
+}
+.hero blockquote::before{
+  content:'\201C';position:absolute;top:-1rem;left:-.2rem;
+  font-size:4.2rem;color:var(--accent);opacity:.18;line-height:1;
+  font-family:var(--font-display);transition:color .4s;
+}
+.hero cite{display:block;margin-top:.9rem;font-size:.66rem;font-style:normal;font-family:var(--font-ui);font-weight:200;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-dim);transition:color .4s}
+
+.divider{display:flex;align-items:center;gap:1rem;max-width:320px;margin:0 auto 2.8rem;padding:0 1.5rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border));transition:background .4s}
+.divider::after{background:linear-gradient(to left,transparent,var(--border))}
+.divider span{color:var(--accent-dim);font-size:.75rem;transition:color .4s}
+
+/* ════════════════════════════════════════
+   ADMIN
+════════════════════════════════════════ */
+.admin-bar{display:none;max-width:1080px;margin:0 auto 1.5rem;padding:0 1.5rem}
+.admin-bar.visible{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
+.btn-add{display:inline-flex;align-items:center;gap:.4rem;background:var(--accent);color:var(--bg);font-family:var(--font-ui);font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.3rem;border:none;cursor:pointer;transition:opacity .2s}
+.btn-add:hover{opacity:.85}
+.admin-hint{font-family:var(--font-ui);font-size:.63rem;color:var(--soft);letter-spacing:.1em}
+
+/* ════════════════════════════════════════
+   POEMS SECTION
+════════════════════════════════════════ */
+.poems-section{max-width:1080px;margin:0 auto;padding:0 1.5rem 6rem}
+.section-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.6rem;flex-wrap:wrap;gap:.5rem}
+.section-label{font-family:var(--font-ui);font-weight:200;font-size:.63rem;letter-spacing:.35em;text-transform:uppercase;color:var(--accent-dim);transition:color .4s}
+.poem-count{font-family:var(--font-ui);font-size:.63rem;font-weight:200;letter-spacing:.1em;color:var(--soft);transition:color .4s}
+
+.poems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:1.2rem}
+
+/* ────── POEM CARD ────── */
+.poem-card{
+  background:var(--card);border:1px solid var(--border);
+  padding:1.7rem 1.55rem 1.35rem;
+  position:relative;display:flex;flex-direction:column;
+  cursor:pointer;opacity:0;animation:fadeUp .55s forwards;
+  transition:border-color .25s,transform .25s,background .4s,box-shadow .25s;
+}
+.poem-card:hover{border-color:var(--accent-dim);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.poem-card::before{content:'';position:absolute;left:0;top:0;width:2px;height:0;background:var(--accent);transition:height .35s ease,background .4s}
+.poem-card:hover::before{height:100%}
+.poem-card:nth-child(1){animation-delay:.04s}.poem-card:nth-child(2){animation-delay:.1s}
+.poem-card:nth-child(3){animation-delay:.16s}.poem-card:nth-child(4){animation-delay:.22s}
+.poem-card:nth-child(5){animation-delay:.28s}.poem-card:nth-child(6){animation-delay:.34s}
+.poem-card:nth-child(7){animation-delay:.4s}.poem-card:nth-child(8){animation-delay:.46s}
+
+.poem-mood-badge{
+  display:inline-flex;align-items:center;gap:.25rem;
+  font-family:var(--font-ui);font-size:.57rem;font-weight:300;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--tag-bg);color:var(--tag-color);
+  border:1px solid var(--border);
+  padding:.16rem .52rem;border-radius:99px;
+  margin-bottom:.65rem;width:fit-content;
+  transition:background .4s,color .4s,border-color .4s;
+}
+.poem-num{font-family:var(--font-ui);font-weight:200;font-size:.58rem;letter-spacing:.22em;color:var(--accent-dim);margin-bottom:.6rem;transition:color .4s}
+.poem-card h2{font-family:var(--font-display);font-size:1.25rem;font-weight:600;line-height:1.22;color:var(--heading);margin-bottom:.85rem;transition:color .4s}
+.poem-preview{font-family:var(--font-body);font-size:.94rem;line-height:1.9;font-style:italic;color:var(--body-text);white-space:pre-line;flex:1;transition:color .4s}
+
+.card-footer{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:.38rem;flex-wrap:wrap;transition:border-color .4s}
+.card-date{font-family:var(--font-ui);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dim);flex:1;transition:color .4s}
+
+.btn-like{display:inline-flex;align-items:center;gap:.28rem;background:none;border:1px solid var(--border);border-radius:99px;padding:.26rem .62rem;cursor:pointer;font-family:var(--font-ui);font-size:.66rem;font-weight:300;color:var(--soft);transition:all .2s;white-space:nowrap}
+.btn-like:hover{border-color:var(--accent2);color:var(--accent2)}
+.btn-like.liked{border-color:var(--accent2);background:color-mix(in srgb,var(--accent2) 12%,transparent);color:var(--accent2)}
+.btn-like .heart{font-size:.82rem;transition:transform .2s}
+.btn-like.liked .heart{transform:scale(1.3)}
+
+.btn-share{display:inline-flex;align-items:center;gap:.28rem;background:none;border:1px solid var(--border);border-radius:99px;padding:.26rem .62rem;cursor:pointer;font-family:var(--font-ui);font-size:.66rem;font-weight:300;color:var(--soft);transition:all .2s;white-space:nowrap}
+.btn-share:hover{border-color:var(--accent);color:var(--accent)}
+
+.read-btn{display:inline-flex;align-items:center;background:none;border:none;cursor:pointer;font-family:var(--font-ui);font-size:.66rem;font-weight:300;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;padding:.26rem 0;transition:opacity .2s;white-space:nowrap}
+.read-btn:hover{opacity:.65}
+
+/* FEATURED */
+.poem-card.featured{grid-column:1/-1;flex-direction:row;gap:2rem;padding:2.2rem 2rem;border-color:var(--accent-dim);background:var(--featured-bg)}
+.poem-card.featured .left{flex:1;min-width:0}
+.poem-card.featured .right{flex:1;min-width:0;display:flex;flex-direction:column}
+.poem-card.featured h2{font-size:clamp(1.35rem,2.5vw,1.85rem);color:var(--accent)}
+.poem-card.featured .poem-preview{font-size:.97rem}
+@media(max-width:580px){.poem-card.featured{flex-direction:column}}
+
+.empty-state{grid-column:1/-1;text-align:center;padding:4rem 2rem;font-family:var(--font-body);font-style:italic;color:var(--soft);font-size:.98rem;line-height:1.8;transition:color .4s}
+
+/* ════════════════════════════════════════
+   MODAL
+════════════════════════════════════════ */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{
+  background:var(--surface);border:1px solid var(--border);
+  max-width:540px;width:100%;max-height:92vh;overflow-y:auto;
+  padding:2.8rem 2.4rem 2.2rem;position:relative;
+  transform:translateY(20px) scale(.98);transition:transform .3s,background .4s,border-color .4s;
+}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal::-webkit-scrollbar{width:3px}
+.modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.modal-close{position:absolute;top:.9rem;right:.9rem;background:none;border:none;width:1.8rem;height:1.8rem;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--soft);cursor:pointer;border-radius:50%;transition:background .2s,color .2s}
+.modal-close:hover{background:var(--card);color:var(--heading)}
+
+.modal-mood-tag{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--font-ui);font-size:.58rem;font-weight:300;letter-spacing:.15em;text-transform:uppercase;background:var(--tag-bg);color:var(--tag-color);padding:.18rem .62rem;border-radius:99px;margin-bottom:.55rem;transition:background .4s,color .4s}
+.modal-num{font-family:var(--font-ui);font-weight:200;font-size:.6rem;letter-spacing:.28em;color:var(--accent-dim);text-transform:uppercase;margin-bottom:.55rem;transition:color .4s}
+.modal h2{font-family:var(--font-display);font-size:clamp(1.45rem,4vw,1.95rem);font-weight:700;color:var(--heading);line-height:1.18;margin-bottom:1.7rem;transition:color .4s}
+
+/* ── ŞİİR METNİ — EN ÖNEMLİ KISIM ── */
+.poem-full{
+  font-family:var(--font-body);
+  font-size:1.12rem;
+  line-height:2.2;
+  color:var(--body-text);
+  white-space:pre-line;
+  font-style:italic;
+  letter-spacing:.012em;
+  transition:color .4s;
+}
+
+.modal-actions{margin-top:1.7rem;padding-top:1.3rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;transition:border-color .4s}
+.modal-date{font-family:var(--font-ui);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-dim);flex:1;transition:color .4s}
+
+/* FONT SIZE CONTROLS */
+.font-controls{display:flex;align-items:center;gap:.3rem;margin-left:auto}
+.fc-btn{background:none;border:1px solid var(--border);border-radius:4px;padding:.2rem .5rem;cursor:pointer;font-family:var(--font-ui);font-size:.7rem;color:var(--soft);transition:all .2s;line-height:1}
+.fc-btn:hover{border-color:var(--accent);color:var(--accent)}
+.fc-label{font-family:var(--font-ui);font-size:.6rem;color:var(--accent-dim);letter-spacing:.1em;min-width:1.8rem;text-align:center}
+
+/* ════════════════════════════════════════
+   SHARE SHEET
+════════════════════════════════════════ */
+.share-sheet-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .25s}
+.share-sheet-overlay.open{opacity:1;pointer-events:all}
+.share-sheet{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);border-radius:16px 16px 0 0;padding:1.4rem 1.5rem 2.8rem;z-index:2001;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1),background .4s,border-color .4s}
+.share-sheet-overlay.open .share-sheet{transform:translateY(0)}
+.share-handle{width:2.2rem;height:3px;background:var(--border);border-radius:99px;margin:0 auto 1.3rem}
+.share-title{font-family:var(--font-ui);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-dim);text-align:center;margin-bottom:1.1rem}
+.share-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.share-btn-big{display:flex;flex-direction:column;align-items:center;gap:.42rem;padding:.85rem .4rem;background:var(--card);border:1px solid var(--border);border-radius:8px;cursor:pointer;text-decoration:none;color:var(--soft);font-family:var(--font-ui);font-size:.6rem;font-weight:300;letter-spacing:.03em;transition:border-color .2s,color .2s,background .4s}
+.share-btn-big:hover{border-color:var(--accent);color:var(--accent)}
+.share-btn-big .sbi{font-size:1.45rem}
+@media(max-width:400px){.share-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ════════════════════════════════════════
+   TEMA PANELİ
+════════════════════════════════════════ */
+.theme-panel-overlay{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
+.theme-panel-overlay.open{opacity:1;pointer-events:all}
+.theme-panel{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);border-radius:20px 20px 0 0;padding:1.5rem 1.5rem 3rem;z-index:3001;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1),background .4s}
+.theme-panel-overlay.open .theme-panel{transform:translateY(0)}
+.tp-handle{width:2.2rem;height:3px;background:var(--border);border-radius:99px;margin:0 auto 1.4rem}
+.tp-title{font-family:var(--font-ui);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:1.3rem;text-align:center}
+.tp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+@media(min-width:480px){.tp-grid{grid-template-columns:repeat(3,1fr)}}
+.tp-card{display:flex;flex-direction:column;gap:.45rem;padding:1rem .9rem;border:1px solid var(--border);border-radius:10px;cursor:pointer;background:var(--card);transition:all .25s;text-align:left}
+.tp-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tp-card.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.tp-swatch{width:100%;height:2.6rem;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.tp-name{font-family:var(--font-ui);font-size:.72rem;font-weight:300;letter-spacing:.04em;color:var(--heading);transition:color .4s}
+.tp-desc{font-family:var(--font-ui);font-size:.58rem;font-weight:200;letter-spacing:.03em;color:var(--soft);line-height:1.4;transition:color .4s}
+
+/* ════════════════════════════════════════
+   WRITE PANEL
+════════════════════════════════════════ */
+.write-panel-overlay{position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center;padding:1.5rem}
+.write-panel-overlay.open{opacity:1;pointer-events:all}
+.write-panel{background:var(--surface);border:1px solid var(--border);max-width:560px;width:100%;max-height:92vh;overflow-y:auto;padding:2.5rem;transform:scale(.96) translateY(16px);transition:transform .3s,background .4s}
+.write-panel-overlay.open .write-panel{transform:scale(1) translateY(0)}
+.write-panel h3{font-family:var(--font-display);font-size:1.35rem;color:var(--heading);margin-bottom:1.5rem;transition:color .4s}
+.field-group{margin-bottom:1rem}
+.field-group label{display:block;font-family:var(--font-ui);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:.42rem;transition:color .4s}
+.field-group input,.field-group textarea,.field-group select{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  padding:.68rem .9rem;font-family:var(--font-body);font-size:1rem;
+  color:var(--body-text);outline:none;resize:vertical;
+  transition:border-color .2s,background .4s,color .4s;
+}
+.field-group input:focus,.field-group textarea:focus,.field-group select:focus{border-color:var(--accent-dim)}
+.field-group textarea{min-height:185px;line-height:1.8;font-style:italic}
+.field-group select option{background:var(--surface)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.write-actions{display:flex;gap:.6rem;margin-top:1.3rem;justify-content:flex-end;flex-wrap:wrap}
+.btn-cancel{background:none;border:1px solid var(--border);color:var(--soft);font-family:var(--font-ui);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.58rem 1.1rem;cursor:pointer;transition:border-color .2s,color .2s}
+.btn-cancel:hover{border-color:var(--soft);color:var(--heading)}
+.btn-save{background:var(--accent);border:none;color:var(--bg);font-family:var(--font-ui);font-size:.7rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:.58rem 1.3rem;cursor:pointer;transition:opacity .2s}
+.btn-save:hover{opacity:.85}
+
+/* ════════════════════════════════════════
+   ABOUT
+════════════════════════════════════════ */
+.about-strip{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 1.5rem;text-align:center;transition:background .4s,border-color .4s}
+.avatar{width:66px;height:66px;border-radius:50%;border:1px solid var(--accent-dim);margin:0 auto 1.1rem;background:var(--card);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.65rem;color:var(--accent);transition:all .4s}
+.about-strip h3{font-family:var(--font-display);font-size:1.35rem;color:var(--heading);margin-bottom:.65rem;transition:color .4s}
+.about-strip p{max-width:440px;margin:0 auto;font-size:.96rem;line-height:1.9;font-style:italic;color:var(--soft);transition:color .4s}
+
+footer{padding:2rem 1.5rem;text-align:center;border-top:1px solid var(--border);transition:border-color .4s}
+footer p{font-family:var(--font-ui);font-weight:200;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-dim);transition:color .4s}
+
+/* ════════════════════════════════════════
+   TOAST
+════════════════════════════════════════ */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--accent);color:var(--bg);font-family:var(--font-ui);font-size:.7rem;font-weight:400;letter-spacing:.08em;padding:.58rem 1.3rem;border-radius:99px;z-index:9000;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ════════════════════════════════════════
+   SEARCH
+════════════════════════════════════════ */
+.search-wrap{
+  max-width:1080px;margin:0 auto;padding:.9rem 1.5rem;
+  border-bottom:1px solid var(--border);transition:border-color .4s;
+}
+.search-input{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  padding:.65rem 1rem .65rem 2.4rem;font-family:var(--font-body);
+  font-size:.95rem;color:var(--body-text);outline:none;
+  transition:border-color .2s,background .4s,color .4s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:.8rem center;
+}
+.search-input:focus{border-color:var(--accent-dim)}
+.search-input::placeholder{color:var(--soft);font-style:italic}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:480px){
+  .modal{padding:2.4rem 1.35rem 2rem}
+  .write-panel{padding:2rem 1.35rem}
+  .two-col{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="install-banner" id="install-banner">
+  <p>📲 <strong>Bilal TUNÇ</strong> uygulamasını ana ekrana ekle</p>
+  <button class="btn-install" id="btn-install">Ekle</button>
+  <button class="btn-dismiss" id="btn-dismiss">✕</button>
+</div>
+
+<header>
+  <p class="eyebrow">Şiir · Duygu · Kelimeler</p>
+  <h1 class="site-title">Bilal <em>TUNÇ</em></h1>
+  <p class="site-sub">Yazan, seven, hisseden.</p>
+</header>
+
+<nav>
+  <a href="#siirler">Şiirler</a>
+  <a href="#hakkinda">Hakkında</a>
+  <a href="#" id="theme-toggle">🎨 Tema</a>
+  <a href="#" id="admin-toggle" style="color:var(--accent-dim)">✦ Yönetici</a>
+</nav>
+
+<div class="theme-bar">
+  <span class="bar-label">Tema</span>
+  <div class="theme-pills" id="theme-pills"></div>
+</div>
+
+<div class="mood-bar">
+  <span class="bar-label">Ruh Hali</span>
+  <div class="mood-chips" id="mood-chips"></div>
+</div>
+
+<div class="search-wrap">
+  <input class="search-input" id="search-input" type="search" placeholder="Şiir ara..." autocomplete="off"/>
+</div>
+
+<div class="hero">
+  <blockquote>
+    Kelimeler bazen bir çığlıktır, bazen en derin sessizlik.
+    <cite>— Bilal TUNÇ</cite>
+  </blockquote>
+</div>
+<div class="divider"><span>✦</span></div>
+
+<div class="admin-bar" id="admin-bar">
+  <button class="btn-add" id="btn-add-poem">✦ Yeni Şiir Ekle</button>
+  <span class="admin-hint">Yönetici Modu Aktif</span>
+</div>
+
+<section class="poems-section" id="siirler">
+  <div class="section-top">
+    <p class="section-label">Şiirler</p>
+    <span class="poem-count" id="poem-count"></span>
+  </div>
+  <div class="poems-grid" id="poems-grid"></div>
+</section>
+
+<section class="about-strip" id="hakkinda">
+  <div class="avatar">B</div>
+  <h3>Bilal TUNÇ</h3>
+  <p>Şiiri bir yaşam biçimi olarak benimseyen, kelimelerle dünyayı yeniden inşa eden biri. Duygularını satırlara döker, okuyucuyla kalbini paylaşır.</p>
+</section>
+
+<footer><p>© 2025 Bilal TUNÇ · Tüm hakları saklıdır</p></footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <p class="modal-mood-tag" id="modal-mood-tag"></p>
+    <p class="modal-num" id="modal-num"></p>
+    <h2 id="modal-title"></h2>
+    <p class="poem-full" id="modal-body"></p>
+    <div class="modal-actions">
+      <span class="modal-date" id="modal-date"></span>
+      <div class="font-controls">
+        <button class="fc-btn" id="fc-down">A−</button>
+        <span class="fc-label" id="fc-label">M</span>
+        <button class="fc-btn" id="fc-up">A+</button>
+      </div>
+      <button class="btn-like" id="modal-like-btn"><span class="heart">♡</span><span id="modal-like-count">0</span></button>
+      <button class="btn-share" id="modal-share-btn">↑ Paylaş</button>
+    </div>
+  </div>
+</div>
+
+<!-- SHARE SHEET -->
+<div class="share-sheet-overlay" id="share-sheet-overlay">
+  <div class="share-sheet">
+    <div class="share-handle"></div>
+    <p class="share-title">Paylaş</p>
+    <div class="share-grid">
+      <a class="share-btn-big" id="share-whatsapp" target="_blank" rel="noopener"><span class="sbi">💬</span><span>WhatsApp</span></a>
+      <a class="share-btn-big" id="share-instagram"><span class="sbi">📸</span><span>Instagram</span></a>
+      <a class="share-btn-big" id="share-twitter" target="_blank" rel="noopener"><span class="sbi">𝕏</span><span>Twitter/X</span></a>
+      <button class="share-btn-big" id="share-copy"><span class="sbi">🔗</span><span>Kopyala</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- TEMA PANELİ -->
+<div class="theme-panel-overlay" id="theme-panel-overlay">
+  <div class="theme-panel">
+    <div class="tp-handle"></div>
+    <p class="tp-title">Tema Seç</p>
+    <div class="tp-grid" id="tp-grid"></div>
+  </div>
+</div>
+
+<!-- WRITE PANEL -->
+<div class="write-panel-overlay" id="write-panel-overlay">
+  <div class="write-panel">
+    <h3>Yeni Şiir Ekle</h3>
+    <div class="field-group">
+      <label>Şiir Başlığı</label>
+      <input type="text" id="field-title" placeholder="Şiirin adı..."/>
+    </div>
+    <div class="two-col">
+      <div class="field-group">
+        <label>Tarih</label>
+        <input type="text" id="field-date" placeholder="Haziran 2025"/>
+      </div>
+      <div class="field-group">
+        <label>Ruh Hali</label>
+        <select id="field-mood"></select>
+      </div>
+    </div>
+    <div class="field-group">
+      <label>Öne Çıkan?</label>
+      <select id="field-featured">
+        <option value="no">Hayır</option>
+        <option value="yes">Evet — geniş kart</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Şiir Metni</label>
+      <textarea id="field-body" placeholder="Şiiri buraya yaz...&#10;Satır sonları korunur."></textarea>
+    </div>
+    <div class="write-actions">
+      <button class="btn-cancel" id="btn-cancel-write">İptal</button>
+      <button class="btn-save" id="btn-save-poem">Kaydet ✦</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════════════
+// CONFIG
+// ════════════════════════════════════════
+const THEMES = [
+  {id:'gece',  name:'Gece',  emoji:'🌑', desc:'Koyu mürekkep, altın',   swatch:'#0d0b08'},
+  {id:'huzun', name:'Hüzün', emoji:'☁️', desc:'Soğuk gri, mavi-mor',    swatch:'#0c0e16'},
+  {id:'ask',   name:'Aşk',   emoji:'🌸', desc:'Pembe & krem, sıcak',    swatch:'#fef6f0'},
+  {id:'huzur', name:'Huzur', emoji:'🌿', desc:'Doğa yeşili, bej',       swatch:'#f2efe6'},
+  {id:'ofke',  name:'Öfke',  emoji:'🔥', desc:'Turuncu-kızıl, keskin',  swatch:'#0c0704'},
+  {id:'ozlem', name:'Özlem', emoji:'🌙', desc:'Lacivert, gümüş',        swatch:'#060c1a'},
+];
+
+const MOODS = [
+  {id:'hepsi',  label:'Tümü',       emoji:'✦'},
+  {id:'huzun',  label:'Hüzün',      emoji:'☁️'},
+  {id:'ask',    label:'Aşk',        emoji:'🌸'},
+  {id:'huzur',  label:'Huzur',      emoji:'🌿'},
+  {id:'ofke',   label:'Öfke',       emoji:'🔥'},
+  {id:'ozlem',  label:'Özlem',      emoji:'🌙'},
+  {id:'umut',   label:'Umut',       emoji:'✨'},
+  {id:'yalniz', label:'Yalnızlık',  emoji:'🕯️'},
+];
+
+const FONT_SIZES = [
+  {size:'0.95rem', lh:'2.0', label:'S'},
+  {size:'1.05rem', lh:'2.1', label:'M'},
+  {size:'1.18rem', lh:'2.2', label:'L'},
+  {size:'1.32rem', lh:'2.3', label:'XL'},
+];
+
+const DEFAULT_POEMS = [
+  {id:'p1',title:'Gece Yağmurunda',date:'Mayıs 2025',mood:'huzun',featured:true,body:`Damlaların sesi çatıda,
+bir şarkı gibi düşer aklıma;
+geçmiş zaman fotoğrafları,
+ıslak bir kâğıt gibi dağılır gider.
+
+Perdeler hafifçe titrer,
+rüzgâr girmez içeri ama hissedilir;
+gecelerin en derin saatinde
+yalnızlık bir misafir gibi oturur yanıma.
+
+Yağmur geçer, iz bırakır,
+asfalt karanlığı içinde parlar;
+ben hâlâ buradayım pencerede —
+beklemek ne güzel bir çılgınlık.`},
+  {id:'p2',title:'Boş Sandalye',date:'Nisan 2025',mood:'yalniz',featured:false,body:`Masada bir sandalye durur,
+kimse oturmaz artık oraya;
+sessizliği taşır içinde
+bütün o söylenmemiş sözleri.
+
+Bir fincan çay koyulur bazen,
+alışkanlık bitmez birden;
+sandalye bakar, fincan soğur,
+zaman geçer yine de beklenir.
+
+Gitmek var, kalmak var,
+bir de bu arada olan her şey;
+boş sandalye bilir hepsini —
+ama o da susar, biz de.`},
+  {id:'p3',title:'Eski Sokak',date:'Mart 2025',mood:'ozlem',featured:false,body:`Taşlar hatırlar eskiden beri,
+çocukluğun izini saklar altında;
+her adım bir ses çıkarır,
+sanki geçmişe çağırır beni.
+
+Duvarlar solmuş boyalar içinde,
+ama yazılar silinmez hiç;
+bir isim kazınmış, bir tarih,
+birinin en büyük aşkı belki.
+
+Ben o sokaktan geçtim yine,
+aynı sokak, başka ben;
+yıllar bizi değiştirir ama
+taşlar hâlâ aynı yerde durur.`},
+  {id:'p4',title:'Sabah Işığı',date:'Şubat 2025',mood:'umut',featured:false,body:`Pencereden sızan ilk ışık,
+dünyayı yeniden yazar her gün;
+bir umut gibi süzülür içeri,
+gecenin hepsini siler süpürür.
+
+Gözler kapalı, zihin uyanık,
+rüyalar henüz dağılmamış;
+ışık dokunur yüze yavaşça —
+bugün de başlıyor, güzel ya da değil.
+
+Kahvenin kokusu ve ışık,
+sabahın iki büyük hediyesi;
+bunu fark edenler bilir:
+en küçük şeyler en büyük sevinç.`},
+  {id:'p5',title:'Kök',date:'Ocak 2025',mood:'huzur',featured:false,body:`Toprakta saklı bir şeyler var,
+adını bilmediğimiz bir güç;
+ağaç büyür, rüzgâr eser,
+ama kök yerinde durur hep.
+
+Biz de böyleyiz belki,
+koşturur dururuz hayatın içinde;
+ama bir yerimiz sabit kalır —
+anı, insan, ya da bir köy.
+
+Kökünü bilmek zordur bazen,
+onu taşımak daha da zor;
+ama o olmadan hiçbir şey büyümez —
+kök, en sessiz güçtür.`},
+  {id:'p6',title:'Sonsuz Aşk',date:'Aralık 2024',mood:'ask',featured:false,body:`Sen bir şiirsin bilmeden yazılmış,
+her dizeye sığmayan bir anlam;
+seninle dünya daha yavaş döner —
+ya da belki ben daha az fark ederim.
+
+Ellerinin dokunuşu bir ses gibi,
+kalbimde yankılanır durur;
+sevmek bu olsa gerek —
+tam da anlatamadığın şey.`},
+  {id:'p7',title:'Fırtına',date:'Kasım 2024',mood:'ofke',featured:false,body:`İçimde bir fırtına var bitmez,
+kökleri söker her şeyin;
+sessizlik de fırtına bazen —
+en derin olanı, en yıkıcısı.
+
+Sözcükler çıkamaz boğazdan,
+hepsi içeride çarpışır;
+bir gün dışarı çıkacaklar —
+o gün ne yapacağımı bilmiyorum.`},
+];
+
+// ════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════
+const ls  = (k,fb) => { try{const v=localStorage.getItem(k);return v?JSON.parse(v):fb}catch{return fb} };
+const lss = (k,v)  => { try{localStorage.setItem(k,JSON.stringify(v))}catch{} };
+
+let poems       = ls('bt_poems', DEFAULT_POEMS);
+let likes       = ls('bt_likes', {});
+let likedByMe   = ls('bt_liked', {});
+let activeTheme = ls('bt_theme', 'gece');
+let activeMood  = 'hepsi';
+let searchQuery = '';
+let adminMode   = false;
+let currentId   = null;
+let fontIdx     = ls('bt_font', 1); // default M
+
+// ════════════════════════════════════════
+// TEMA
+// ════════════════════════════════════════
+function applyTheme(id) {
+  activeTheme = id;
+  document.documentElement.setAttribute('data-theme', id);
+  const t = THEMES.find(t=>t.id===id);
+  if(t) document.getElementById('meta-theme').content = t.swatch;
+  lss('bt_theme', id);
+  document.querySelectorAll('[data-tid]').forEach(el=>el.classList.toggle('active', el.dataset.tid===id));
+}
+
+function buildThemePills() {
+  const c = document.getElementById('theme-pills');
+  c.innerHTML='';
+  THEMES.forEach(t=>{
+    const b=document.createElement('button');
+    b.className='theme-pill'+(t.id===activeTheme?' active':'');
+    b.dataset.tid=t.id;
+    b.innerHTML=`${t.emoji} ${t.name}`;
+    b.onclick=()=>{ applyTheme(t.id); showToast(`${t.emoji} ${t.name} teması`); };
+    c.appendChild(b);
+  });
+}
+
+function buildThemePanel() {
+  const g=document.getElementById('tp-grid');
+  g.innerHTML='';
+  THEMES.forEach(t=>{
+    const c=document.createElement('div');
+    c.className='tp-card'+(t.id===activeTheme?' active':'');
+    c.dataset.tid=t.id;
+    c.innerHTML=`<div class="tp-swatch" style="background:${t.swatch}">${t.emoji}</div><span class="tp-name">${t.name}</span><span class="tp-desc">${t.desc}</span>`;
+    c.onclick=()=>{ applyTheme(t.id); closeThemePanel(); showToast(`${t.emoji} ${t.name} teması seçildi`); };
+    g.appendChild(c);
+  });
+}
+
+function openThemePanel(){ document.getElementById('theme-panel-overlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeThemePanel(){ document.getElementById('theme-panel-overlay').classList.remove('open'); document.body.style.overflow=''; }
+
+document.getElementById('theme-toggle').onclick = e=>{ e.preventDefault(); openThemePanel(); };
+document.getElementById('theme-panel-overlay').onclick = e=>{ if(e.target===document.getElementById('theme-panel-overlay')) closeThemePanel(); };
+
+// ════════════════════════════════════════
+// MOOD
+// ════════════════════════════════════════
+function buildMoodChips() {
+  const c=document.getElementById('mood-chips');
+  c.innerHTML='';
+  MOODS.forEach(m=>{
+    const b=document.createElement('button');
+    b.className='mood-chip'+(m.id===activeMood?' active':'');
+    b.dataset.mid=m.id;
+    b.textContent=m.emoji+' '+m.label;
+    b.onclick=()=>{
+      activeMood=m.id;
+      document.querySelectorAll('.mood-chip').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderPoems();
+    };
+    c.appendChild(b);
+  });
+
+  // Mood select in write panel
+  const sel=document.getElementById('field-mood');
+  if(sel){ sel.innerHTML=''; MOODS.filter(m=>m.id!=='hepsi').forEach(m=>{ const o=document.createElement('option'); o.value=m.id; o.textContent=m.emoji+' '+m.label; sel.appendChild(o); }); }
+}
+
+function getMoodLabel(id){ const m=MOODS.find(m=>m.id===id); return m?m.emoji+' '+m.label:''; }
+
+// ════════════════════════════════════════
+// SEARCH
+// ════════════════════════════════════════
+document.getElementById('search-input').addEventListener('input', e=>{
+  searchQuery = e.target.value.toLowerCase().trim();
+  renderPoems();
+});
+
+// ════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════
+function preview(body){ return body.split('\n').slice(0,4).join('\n'); }
+function fmt(n){ return n>999?(n/1000).toFixed(1)+'k':n; }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function renderPoems() {
+  const grid = document.getElementById('poems-grid');
+  grid.innerHTML='';
+
+  let list = activeMood==='hepsi' ? [...poems] : poems.filter(p=>p.mood===activeMood);
+  if(searchQuery) list = list.filter(p=> p.title.toLowerCase().includes(searchQuery) || p.body.toLowerCase().includes(searchQuery));
+
+  const total = poems.length;
+  const shown = list.length;
+  const countEl = document.getElementById('poem-count');
+  if(searchQuery) countEl.textContent = `"${searchQuery}" — ${shown} sonuç`;
+  else if(activeMood!=='hepsi') countEl.textContent = `${shown} / ${total} şiir`;
+  else countEl.textContent = `${total} şiir`;
+
+  if(!list.length){
+    const e=document.createElement('div');
+    e.className='empty-state';
+    e.innerHTML='Bu ruh halinde henüz şiir yok.<br><em>Belki bugün yazılır…</em>';
+    grid.appendChild(e);
+    return;
+  }
+
+  list.forEach((poem,i)=>{
+    const lc    = likes[poem.id]||0;
+    const iLike = likedByMe[poem.id]||false;
+    const idx   = poems.indexOf(poem);
+    const num   = `No. ${String(idx+1).padStart(3,'0')}${poem.featured?' · Öne Çıkan':''}`;
+    const ml    = getMoodLabel(poem.mood);
+
+    const card = document.createElement('div');
+    card.className = 'poem-card'+(poem.featured?' featured':'');
+
+    const badge  = ml?`<span class="poem-mood-badge">${esc(ml)}</span>`:'';
+    const footer = `<div class="card-footer">
+      <span class="card-date">${esc(poem.date||'')}</span>
+      <button class="btn-like ${iLike?'liked':''}" data-id="${poem.id}" onclick="toggleLike(event,'${poem.id}')">
+        <span class="heart">${iLike?'♥':'♡'}</span><span class="lc-${poem.id}">${fmt(lc)}</span>
+      </button>
+      <button class="btn-share" onclick="openShareSheet(event,'${poem.id}')">↑ Paylaş</button>
+      <button class="read-btn" onclick="openModal('${poem.id}')">Oku →</button>
+    </div>`;
+
+    if(poem.featured){
+      card.innerHTML=`
+        <div class="left">${badge}<p class="poem-num">${num}</p><h2>${esc(poem.title)}</h2></div>
+        <div class="right"><p class="poem-preview">${esc(preview(poem.body))}</p>${footer}</div>`;
+    } else {
+      card.innerHTML=`${badge}<p class="poem-num">${num}</p><h2>${esc(poem.title)}</h2><p class="poem-preview">${esc(preview(poem.body))}</p>${footer}`;
+      card.addEventListener('click', e=>{ if(!e.target.closest('button')) openModal(poem.id); });
+    }
+    grid.appendChild(card);
+  });
+}
+
+// ════════════════════════════════════════
+// MODAL + FONT SIZE
+// ════════════════════════════════════════
+function applyFontSize(){
+  const f = FONT_SIZES[fontIdx];
+  const el = document.getElementById('modal-body');
+  if(el){ el.style.fontSize=f.size; el.style.lineHeight=f.lh; }
+  const lbl = document.getElementById('fc-label');
+  if(lbl) lbl.textContent=f.label;
+  lss('bt_font', fontIdx);
+}
+
+document.getElementById('fc-up').onclick = ()=>{ if(fontIdx<FONT_SIZES.length-1){ fontIdx++; applyFontSize(); } };
+document.getElementById('fc-down').onclick = ()=>{ if(fontIdx>0){ fontIdx--; applyFontSize(); } };
+
+function openModal(id){
+  const poem=poems.find(p=>p.id===id); if(!poem) return;
+  currentId=id;
+  const idx=poems.indexOf(poem);
+  document.getElementById('modal-num').textContent=`No. ${String(idx+1).padStart(3,'0')}${poem.featured?' · Öne Çıkan':''}`;
+  document.getElementById('modal-title').textContent=poem.title;
+  document.getElementById('modal-body').textContent=poem.body;
+  document.getElementById('modal-date').textContent=poem.date||'';
+  const mt=document.getElementById('modal-mood-tag');
+  const ml=getMoodLabel(poem.mood); mt.textContent=ml; mt.style.display=ml?'':'none';
+  updateModalLike(id);
+  applyFontSize();
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function updateModalLike(id){
+  const btn=document.getElementById('modal-like-btn');
+  const iL=likedByMe[id]||false; const cnt=likes[id]||0;
+  btn.className='btn-like'+(iL?' liked':'');
+  btn.querySelector('.heart').textContent=iL?'♥':'♡';
+  document.getElementById('modal-like-count').textContent=fmt(cnt);
+}
+
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow=''; currentId=null;
+}
+
+document.getElementById('modal-close').onclick=closeModal;
+document.getElementById('modal-overlay').onclick=e=>{ if(e.target===document.getElementById('modal-overlay')) closeModal(); };
+document.getElementById('modal-like-btn').onclick=()=>{ if(currentId){toggleLike(null,currentId);updateModalLike(currentId);} };
+document.getElementById('modal-share-btn').onclick=e=>{ if(currentId) openShareSheet(e,currentId); };
+
+// ════════════════════════════════════════
+// LIKES
+// ════════════════════════════════════════
+function toggleLike(event,id){
+  if(event){event.stopPropagation();event.preventDefault();}
+  const iL=likedByMe[id]||false;
+  likedByMe[id]=!iL; likes[id]=Math.max(0,(likes[id]||0)+(iL?-1:1));
+  lss('bt_likes',likes); lss('bt_liked',likedByMe);
+  showToast(iL?'Beğeni geri alındı':'❤️ Beğenildi!');
+  document.querySelectorAll(`.btn-like[data-id="${id}"]`).forEach(b=>{
+    const now=likedByMe[id];
+    b.className='btn-like'+(now?' liked':'');
+    b.querySelector('.heart').textContent=now?'♥':'♡';
+  });
+  document.querySelectorAll(`.lc-${id}`).forEach(el=>el.textContent=fmt(likes[id]||0));
+}
+
+// ════════════════════════════════════════
+// SHARE
+// ════════════════════════════════════════
+function openShareSheet(event,id){
+  if(event){event.stopPropagation();event.preventDefault();}
+  const poem=poems.find(p=>p.id===id); if(!poem) return;
+  currentId=id;
+  const url=window.location.href.split('?')[0]+'?siir='+id;
+  const prev=poem.body.split('\n').slice(0,4).join('\n');
+  const text=`"${poem.title}"\n\n${prev}\n\n— Bilal TUNÇ`;
+
+  if(navigator.share){ navigator.share({title:poem.title+' — Bilal TUNÇ',text,url}).catch(()=>{}); return; }
+
+  document.getElementById('share-whatsapp').href=`https://wa.me/?text=${encodeURIComponent(text+'\n'+url)}`;
+  document.getElementById('share-twitter').href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  document.getElementById('share-instagram').onclick=e=>{ e.preventDefault(); navigator.clipboard.writeText(text+'\n'+url).then(()=>{showToast('📸 Kopyalandı — Instagram\'a yapıştır');closeShareSheet();}).catch(()=>showToast('Kopyalanamadı')); };
+  document.getElementById('share-copy').onclick=()=>{ navigator.clipboard.writeText(url).then(()=>{showToast('🔗 Bağlantı kopyalandı!');closeShareSheet();}).catch(()=>showToast('Kopyalanamadı')); };
+
+  document.getElementById('share-sheet-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeShareSheet(){ document.getElementById('share-sheet-overlay').classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('share-sheet-overlay').onclick=e=>{ if(e.target===document.getElementById('share-sheet-overlay')) closeShareSheet(); };
+
+// ════════════════════════════════════════
+// WRITE PANEL
+// ════════════════════════════════════════
+document.getElementById('btn-add-poem').onclick=()=>{
+  document.getElementById('field-title').value='';
+  document.getElementById('field-date').value=new Date().toLocaleDateString('tr-TR',{month:'long',year:'numeric'});
+  document.getElementById('field-body').value='';
+  document.getElementById('field-featured').value='no';
+  document.getElementById('write-panel-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>document.getElementById('field-title').focus(),100);
+};
+document.getElementById('btn-cancel-write').onclick=()=>{ document.getElementById('write-panel-overlay').classList.remove('open'); document.body.style.overflow=''; };
+document.getElementById('btn-save-poem').onclick=()=>{
+  const title=document.getElementById('field-title').value.trim();
+  const date=document.getElementById('field-date').value.trim();
+  const body=document.getElementById('field-body').value.trim();
+  const mood=document.getElementById('field-mood').value;
+  const featured=document.getElementById('field-featured').value==='yes';
+  if(!title||!body){showToast('⚠️ Başlık ve şiir metni zorunlu');return;}
+  const np={id:'p'+Date.now(),title,date:date||'',mood,featured,body};
+  if(featured){ poems=poems.map(p=>({...p,featured:false})); poems.unshift(np); } else poems.push(np);
+  lss('bt_poems',poems); renderPoems();
+  document.getElementById('write-panel-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  showToast('✦ Şiir eklendi!');
+};
+
+// ════════════════════════════════════════
+// ADMIN
+// ════════════════════════════════════════
+const ADMIN_PW='bilal2025';
+document.getElementById('admin-toggle').onclick=e=>{
+  e.preventDefault();
+  if(adminMode){ adminMode=false; document.getElementById('admin-bar').classList.remove('visible'); showToast('Yönetici modu kapatıldı'); }
+  else{ const pw=prompt('Yönetici şifresi:'); if(pw===ADMIN_PW){ adminMode=true; document.getElementById('admin-bar').classList.add('visible'); showToast('✦ Yönetici modu açık'); } else if(pw!==null) showToast('⚠️ Hatalı şifre'); }
+};
+
+// ════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════
+let toastT;
+function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2600); }
+
+// ════════════════════════════════════════
+// PWA
+// ════════════════════════════════════════
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; document.getElementById('install-banner').classList.add('visible'); });
+document.getElementById('btn-install').onclick=async()=>{ if(!deferredPrompt)return; deferredPrompt.prompt(); const{outcome}=await deferredPrompt.userChoice; deferredPrompt=null; document.getElementById('install-banner').classList.remove('visible'); if(outcome==='accepted')showToast('📲 Uygulama eklendi!'); };
+document.getElementById('btn-dismiss').onclick=()=>document.getElementById('install-banner').classList.remove('visible');
+
+if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+
+// ════════════════════════════════════════
+// KEYBOARD
+// ════════════════════════════════════════
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ closeModal(); closeShareSheet(); closeThemePanel(); document.getElementById('write-panel-overlay').classList.remove('open'); document.body.style.overflow=''; }
+});
+
+// ════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════
+applyTheme(activeTheme);
+buildThemePills();
+buildThemePanel();
+buildMoodChips();
+renderPoems();
+</script>
+</body>
+</html>
